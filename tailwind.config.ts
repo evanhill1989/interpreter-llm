@@ -16,6 +16,7 @@ const config: Config = {
       fontFamily: {
         poppins: ["Poppins", "sans-serif"],
         bigShouldersDisplay: ["Big Shoulders Display", "cursive"],
+        righteous: ["Righteous", "cursive"],
       },
     },
   },
