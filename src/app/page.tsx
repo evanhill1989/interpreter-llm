@@ -1,28 +1,24 @@
 // newNotes / TODO s
-// Fix border at bottom of translate form
-// add ui/ux for new view
+
 // for now I'm exposing my API key to the browser
 // but later i need to move this async function to a server-side function file
 
 // oldNotes / TODO s
+// Fix border at bottom of translate form
+// add ui/ux for new view
 
 "use client";
 
 import { useState } from "react";
-import OpenAI from "openai";
 
 import { Righteous } from "next/font/google";
+import openai from "@/lib/openai";
 
 // Temporary exposure of API key to the browser; move this to a server-side function for production
 
 const righteous = Righteous({
   subsets: ["latin"],
   weight: ["400"],
-});
-
-const openai = new OpenAI({
-  apiKey: process.env.NEXT_PUBLIC_OPENAI_API_KEY,
-  dangerouslyAllowBrowser: true,
 });
 
 export default function Home() {
@@ -41,29 +37,24 @@ export default function Home() {
       return;
     }
 
-    // Define a prompt that includes the desired language
-    const prompt = `Translate the following text to ${language}: ${text}`;
-
-    const messages = [
-      {
-        role: "system",
-        content: "You are a helpful assistant.",
-      },
-      {
-        role: "user",
-        content: prompt,
-      },
-    ];
-
     try {
-      const completion = await openai.chat.completions.create({
-        model: "gpt-4",
-        messages: messages,
+      const res = await fetch("api/route", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ text, language }),
       });
 
-      setResponse(completion.choices[0]?.message?.content ?? "No response");
+      const data = await res.json();
+
+      if (res.ok) {
+        setResponse(data.message);
+      } else {
+        setResponse(data.error || "An error occurred.");
+      }
     } catch (error) {
-      console.error("Error with OpenAI API:", error);
+      console.error("Error calling API:", error);
       setResponse("An error occurred while processing your request.");
     }
   }
