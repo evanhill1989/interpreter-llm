@@ -1,7 +1,5 @@
 // newNotes / TODO s
-
-// for now I'm exposing my API key to the browser
-// but later i need to move this async function to a server-side function file
+// still trying to set up my api route. getting 404 errors though.
 
 // oldNotes / TODO s
 // Fix border at bottom of translate form
@@ -12,7 +10,6 @@
 import { useState } from "react";
 
 import { Righteous } from "next/font/google";
-import openai from "@/lib/openai";
 
 // Temporary exposure of API key to the browser; move this to a server-side function for production
 
@@ -29,6 +26,36 @@ export default function Home() {
   async function handleStartOver(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
   }
+  // async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+  //   event.preventDefault();
+
+  //   if (!text || !language) {
+  //     alert("Please enter text and select a language.");
+  //     return;
+  //   }
+
+  //   try {
+  //     const res = await fetch("/api/translate", {
+  //       method: "POST",
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //       },
+  //       body: JSON.stringify({ text, language }),
+  //     });
+
+  //     const data = await res.json();
+
+  //     if (res.ok) {
+  //       setResponse(data.message);
+  //     } else {
+  //       setResponse(data.error || "An error occurred.");
+  //     }
+  //   } catch (error) {
+  //     console.error("Error calling API:", error);
+  //     setResponse("An error occurred while processing your request.");
+  //   }
+  // }
+
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
@@ -38,7 +65,7 @@ export default function Home() {
     }
 
     try {
-      const res = await fetch("api/route", {
+      const res = await fetch("/api/translate", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -165,6 +192,7 @@ export default function Home() {
                   className="border rounded-lg p-2 w-full mt-2 text-black max-w-[500px]"
                   placeholder="Enter your text here..."
                   value={text}
+                  readOnly
                 ></textarea>
               </div>
 
@@ -183,6 +211,7 @@ export default function Home() {
                   className="border rounded-lg p-2 w-full mt-2 text-black max-w-[500px]"
                   placeholder="Enter your text here..."
                   value={response}
+                  readOnly
                 ></textarea>
               </div>
               <button
