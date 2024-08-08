@@ -191,6 +191,18 @@ export default function Home() {
                             Japanese
                           </label>
                         </div>
+                        <div>
+                          <input
+                            type="radio"
+                            id="english"
+                            name="language"
+                            value="English"
+                            onChange={(e) => setLanguage(e.target.value)}
+                          />
+                          <label className="ml-2" htmlFor="english">
+                            English
+                          </label>
+                        </div>
                       </div>
                     </fieldset>
                   </div>
