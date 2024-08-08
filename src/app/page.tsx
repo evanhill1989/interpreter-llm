@@ -137,8 +137,8 @@ export default function Home() {
                     <textarea
                       id="textToTranslate"
                       name="textToTranslate"
-                      rows="5"
-                      cols="50"
+                      rows={5}
+                      cols={50}
                       className="border rounded-lg p-2 w-full mt-2 text-black max-w-[500px]"
                       placeholder="Enter your text here..."
                       value={text}
@@ -219,8 +219,8 @@ export default function Home() {
                     <textarea
                       id="textToTranslate"
                       name="textToTranslate"
-                      rows="5"
-                      cols="50"
+                      rows={5}
+                      cols={50}
                       className="border rounded-lg p-2 w-full mt-2 text-black max-w-[500px]"
                       placeholder="Enter your text here..."
                       value={text}
@@ -238,8 +238,8 @@ export default function Home() {
                     <textarea
                       id="textToTranslate"
                       name="textToTranslate"
-                      rows="5"
-                      cols="50"
+                      rows={5}
+                      cols={50}
                       className="border rounded-lg p-2 w-full mt-2 text-black max-w-[500px]"
                       placeholder="Enter your text here..."
                       value={response}
