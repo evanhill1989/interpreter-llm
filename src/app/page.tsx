@@ -132,7 +132,7 @@ export default function Home() {
                       htmlFor="textToTranslate"
                       className="mb-4 font-semibold text-xl text-sky-300"
                     >
-                      Text to translate
+                      Enter text
                     </label>
                     <textarea
                       id="textToTranslate"
@@ -147,11 +147,11 @@ export default function Home() {
                   </div>
 
                   <div className="mb-4 flex flex-col items-center w-full">
-                    <fieldset className=" fieldset w-1/2 max-w-[300px]">
+                    <fieldset className=" fieldset max-w-[300px]">
                       {/* For some reason this legend element below doesn't respond to 
                 flex align directives, so I had to use text-center on it */}
                       <legend className="mb-4 font-semibold text-center text-xl text-sky-300 ">
-                        Select a language
+                        Translate to
                       </legend>
 
                       <div className="flex flex-col gap-4  font-semibold">
@@ -163,7 +163,7 @@ export default function Home() {
                             value="French"
                             onChange={(e) => setLanguage(e.target.value)}
                           />
-                          <label className="ml-2" htmlFor="french">
+                          <label className="ml-2 w-1/2" htmlFor="french">
                             French
                           </label>
                         </div>
@@ -226,7 +226,7 @@ export default function Home() {
                       htmlFor="textToTranslate"
                       className="mb-4 font-semibold text-xl text-sky-300"
                     >
-                      Your original text
+                      Original text
                     </label>
                     <textarea
                       id="textToTranslate"
