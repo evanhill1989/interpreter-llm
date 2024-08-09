@@ -123,150 +123,155 @@ export default function Home() {
             </div>
           </header>
 
-          <main className="px-6 py-12">
-            {!response && (
-              <div className="p-6">
-                <form onSubmit={handleSubmit} className="flex flex-col  gap-4">
-                  <div className="mb-4 flex flex-col items-center justify-center">
-                    <label
-                      htmlFor="textToTranslate"
-                      className="mb-4 font-semibold text-xl text-sky-300"
-                    >
-                      Enter text
-                    </label>
-                    <textarea
-                      id="textToTranslate"
-                      name="textToTranslate"
-                      rows={5}
-                      cols={50}
-                      className="border rounded-lg p-2 w-full mt-2 text-black max-w-[500px]"
-                      placeholder="Enter your text here..."
-                      value={text}
-                      onChange={(e) => setText(e.target.value)}
-                    ></textarea>
-                  </div>
+          <main className="px-6 py-12 flex justify-center items-center w-full">
+            <div className="flex justify-center items-center max-w-[500px]">
+              {!response && (
+                <div className="p-6">
+                  <form
+                    onSubmit={handleSubmit}
+                    className="flex flex-col  gap-4"
+                  >
+                    <div className="mb-4 flex flex-col items-center justify-center">
+                      <label
+                        htmlFor="textToTranslate"
+                        className="mb-4 font-semibold text-xl text-sky-300"
+                      >
+                        Enter text
+                      </label>
+                      <textarea
+                        id="textToTranslate"
+                        name="textToTranslate"
+                        rows={5}
+                        cols={50}
+                        className="border rounded-lg p-2 w-full mt-2 text-black "
+                        placeholder="Enter your text here..."
+                        value={text}
+                        onChange={(e) => setText(e.target.value)}
+                      ></textarea>
+                    </div>
 
-                  <div className="mb-4 flex flex-col items-center w-full">
-                    <fieldset className=" fieldset max-w-[300px]">
-                      {/* For some reason this legend element below doesn't respond to 
+                    <div className="mb-4 flex flex-wrap  justify-center ">
+                      <fieldset className=" fieldset ">
+                        {/* For some reason this legend element below doesn't respond to 
                 flex align directives, so I had to use text-center on it */}
-                      <legend className="mb-4 font-semibold text-center text-xl text-sky-300 ">
-                        Translate to
-                      </legend>
+                        <legend className="mb-4 font-semibold  text-xl text-sky-300 ">
+                          Translate to
+                        </legend>
 
-                      <div className="flex flex-col gap-4  font-semibold">
-                        <div>
-                          <input
-                            type="radio"
-                            id="french"
-                            name="language"
-                            value="French"
-                            onChange={(e) => setLanguage(e.target.value)}
-                          />
-                          <label className="ml-2 w-1/2" htmlFor="french">
-                            French
-                          </label>
+                        <div className="flex flex-col gap-4  font-semibold">
+                          <div>
+                            <input
+                              type="radio"
+                              id="french"
+                              name="language"
+                              value="French"
+                              onChange={(e) => setLanguage(e.target.value)}
+                            />
+                            <label className="ml-2 w-1/2" htmlFor="french">
+                              French
+                            </label>
+                          </div>
+                          <div>
+                            <input
+                              type="radio"
+                              id="spanish"
+                              name="language"
+                              value="Spanish"
+                              onChange={(e) => setLanguage(e.target.value)}
+                            />
+                            <label className="ml-2" htmlFor="spanish">
+                              Spanish
+                            </label>
+                          </div>
+                          <div>
+                            <input
+                              type="radio"
+                              id="japanese"
+                              name="language"
+                              value="Japanese"
+                              onChange={(e) => setLanguage(e.target.value)}
+                            />
+                            <label className="ml-2" htmlFor="japanese">
+                              Japanese
+                            </label>
+                          </div>
+                          <div>
+                            <input
+                              type="radio"
+                              id="english"
+                              name="language"
+                              value="English"
+                              onChange={(e) => setLanguage(e.target.value)}
+                            />
+                            <label className="ml-2" htmlFor="english">
+                              English
+                            </label>
+                          </div>
                         </div>
-                        <div>
-                          <input
-                            type="radio"
-                            id="spanish"
-                            name="language"
-                            value="Spanish"
-                            onChange={(e) => setLanguage(e.target.value)}
-                          />
-                          <label className="ml-2" htmlFor="spanish">
-                            Spanish
-                          </label>
-                        </div>
-                        <div>
-                          <input
-                            type="radio"
-                            id="japanese"
-                            name="language"
-                            value="Japanese"
-                            onChange={(e) => setLanguage(e.target.value)}
-                          />
-                          <label className="ml-2" htmlFor="japanese">
-                            Japanese
-                          </label>
-                        </div>
-                        <div>
-                          <input
-                            type="radio"
-                            id="english"
-                            name="language"
-                            value="English"
-                            onChange={(e) => setLanguage(e.target.value)}
-                          />
-                          <label className="ml-2" htmlFor="english">
-                            English
-                          </label>
-                        </div>
-                      </div>
-                    </fieldset>
-                  </div>
-                  <button
-                    type="submit"
-                    className="w-full max-w-[500px] self-center text-black bg-sky-300 rounded-md py-2 px-4 font-bold text-xl mb-3"
-                  >
-                    Translate!
-                  </button>
-                </form>
-              </div>
-            )}
-            {response && (
-              <div className="p-6">
-                <form
-                  onSubmit={handleStartOver}
-                  className="flex flex-col  gap-4"
-                >
-                  <div className="mb-4 flex flex-col items-center justify-center">
-                    <label
-                      htmlFor="textToTranslate"
-                      className="mb-4 font-semibold text-xl text-sky-300"
+                      </fieldset>
+                    </div>
+                    <button
+                      type="submit"
+                      className="w-full max-w-[500px] self-center text-black bg-sky-300 rounded-md py-2 px-4 font-bold text-xl mb-3"
                     >
-                      Original text
-                    </label>
-                    <textarea
-                      id="textToTranslate"
-                      name="textToTranslate"
-                      rows={5}
-                      cols={50}
-                      className="border rounded-lg p-2 w-full mt-2 text-black max-w-[500px]"
-                      placeholder="Enter your text here..."
-                      value={text}
-                      readOnly
-                    ></textarea>
-                  </div>
+                      Translate!
+                    </button>
+                  </form>
+                </div>
+              )}
+              {response && (
+                <div className="p-6">
+                  <form
+                    onSubmit={handleStartOver}
+                    className="flex flex-col  gap-4"
+                  >
+                    <div className="mb-4 flex flex-col items-center justify-center">
+                      <label
+                        htmlFor="textToTranslate"
+                        className="mb-4 font-semibold text-xl text-sky-300"
+                      >
+                        Original text
+                      </label>
+                      <textarea
+                        id="textToTranslate"
+                        name="textToTranslate"
+                        rows={5}
+                        cols={50}
+                        className="border rounded-lg p-2 w-full mt-2 text-black max-w-[500px]"
+                        placeholder="Enter your text here..."
+                        value={text}
+                        readOnly
+                      ></textarea>
+                    </div>
 
-                  <div className="mb-4 flex flex-col items-center w-full">
-                    <label
-                      htmlFor="textToTranslate"
-                      className="mb-4 font-semibold text-xl text-sky-300"
+                    <div className="mb-4 flex flex-col items-center w-full">
+                      <label
+                        htmlFor="textToTranslate"
+                        className="mb-4 font-semibold text-xl text-sky-300"
+                      >
+                        Translation
+                      </label>
+                      <textarea
+                        id="textToTranslate"
+                        name="textToTranslate"
+                        rows={5}
+                        cols={50}
+                        className="border rounded-lg p-2 w-full mt-2 text-black max-w-[500px]"
+                        placeholder="Enter your text here..."
+                        value={response}
+                        readOnly
+                      ></textarea>
+                    </div>
+                    <button
+                      type="submit"
+                      className="w-full max-w-[500px] self-center text-black bg-sky-300 rounded-md py-2 px-4 font-bold text-xl mb-3"
                     >
-                      Translation
-                    </label>
-                    <textarea
-                      id="textToTranslate"
-                      name="textToTranslate"
-                      rows={5}
-                      cols={50}
-                      className="border rounded-lg p-2 w-full mt-2 text-black max-w-[500px]"
-                      placeholder="Enter your text here..."
-                      value={response}
-                      readOnly
-                    ></textarea>
-                  </div>
-                  <button
-                    type="submit"
-                    className="w-full max-w-[500px] self-center text-black bg-sky-300 rounded-md py-2 px-4 font-bold text-xl mb-3"
-                  >
-                    Start Over
-                  </button>
-                </form>
-              </div>
-            )}
+                      Start Over
+                    </button>
+                  </form>
+                </div>
+              )}
+            </div>
           </main>
         </div>
       )}
