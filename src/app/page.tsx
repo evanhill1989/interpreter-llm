@@ -130,7 +130,7 @@ export default function Home() {
                   <div className="mb-4 flex flex-col items-center justify-center">
                     <label
                       htmlFor="textToTranslate"
-                      className="mb-4 font-semibold text-lg text-sky-300"
+                      className="mb-4 font-semibold text-xl text-sky-300"
                     >
                       Text to translate
                     </label>
@@ -150,7 +150,7 @@ export default function Home() {
                     <fieldset className=" fieldset w-1/2 max-w-[300px]">
                       {/* For some reason this legend element below doesn't respond to 
                 flex align directives, so I had to use text-center on it */}
-                      <legend className="mb-4 font-semibold text-center text-lg text-sky-300 ">
+                      <legend className="mb-4 font-semibold text-center text-xl text-sky-300 ">
                         Select a language
                       </legend>
 
@@ -224,7 +224,7 @@ export default function Home() {
                   <div className="mb-4 flex flex-col items-center justify-center">
                     <label
                       htmlFor="textToTranslate"
-                      className="mb-4 font-semibold text-lg text-sky-300"
+                      className="mb-4 font-semibold text-xl text-sky-300"
                     >
                       Your original text
                     </label>
@@ -243,7 +243,7 @@ export default function Home() {
                   <div className="mb-4 flex flex-col items-center w-full">
                     <label
                       htmlFor="textToTranslate"
-                      className="mb-4 font-semibold text-lg text-sky-300"
+                      className="mb-4 font-semibold text-xl text-sky-300"
                     >
                       Translation
                     </label>
